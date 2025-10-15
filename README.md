@@ -215,9 +215,11 @@ npx @modelcontextprotocol/inspector node dist/index.js
 
 The server is built using:
 - **@modelcontextprotocol/sdk**: Official MCP SDK for Node.js
+- **@sourceparts/sdk**: Official Source Parts TypeScript SDK
 - **TypeScript**: Type-safe development
 - **Zod**: Runtime validation
-- **Fetch API**: HTTP requests to Source Parts API
+
+The MCP server acts as a thin wrapper around the Source Parts SDK, exposing its functionality through MCP tools for use in Claude and other MCP-compatible clients.
 
 ### Project Structure
 
@@ -279,13 +281,24 @@ Copyright 2025 Source Parts
 
 ## Changelog
 
+### v0.2.0 (2025-10-15)
+
+- **Breaking**: Refactored to use @sourceparts/sdk instead of direct API calls
+- Added 14 tools (expanded from 8):
+  - Products: search_products, get_product_details, get_categories, get_manufacturers
+  - Quotes: list_quotes, get_quote, create_quote
+  - BOMs: list_boms, get_bom, get_bom_pricing
+  - Orders: list_orders, get_order, get_order_tracking
+- Improved error handling through SDK
+- Better type safety with SDK types
+
 ### v0.1.0 (2025-10-15)
 
 - Initial release
 - 8 core tools for product search and management
 - TypeScript support
 - Full MCP SDK integration
-- Comprehensive API coverage
+- Direct API integration
 
 ## Related Projects
 
